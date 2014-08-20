@@ -5,13 +5,15 @@
  * Date: 8/20/14
  * Time: 9:28 AM
  */
+use \Way\Tests\Assert;
+use \Way\Tests\Should;
 class User {
-    protected  $a;
+    protected  $variable;
 
     function __construct()
     {
-        $a=100;
-        echo $a;
+        $variable=100;
+        echo $variable;
     }
     public function info()
     {
@@ -37,12 +39,12 @@ class PracticeTest extends TestCase{
     public function testAssertEquals()
     {
         $greeting = "Hello World";
-        $value1 = 0;
+        $value1 = 9;
         $value2 = null;
         $this->assertEquals("Hello World",$greeting);
-        $this->assertEquals(0,$value1);
-        $this->assertEquals(0,$value2);
-        $this->assertEquals(null,$value2);
+        $this->assertEquals(9,$value1);
+        /* $this->assertEquals(0,$value2);
+        $this->assertEquals(null,$value2);*/
 
 
     }
@@ -54,7 +56,7 @@ class PracticeTest extends TestCase{
             $value2=null;
             $this->assertSame(0,$value1);
             $this->assertSame(null,$value2);
-            //$this->assertSame(0,$value2); false
+           // $this->assertSame(0,$value2);
         }
         public function testAssertContains()
         {
@@ -83,4 +85,10 @@ class PracticeTest extends TestCase{
 
         }
 
+        public function testWrapper()
+        {
+            $name='shuvrow';
+            Should::equal('shuvrow',$name);
+            Assert::equals('shuvrow',$name);
+        }
 }
